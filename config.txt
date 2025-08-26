@@ -1,0 +1,8 @@
+-- Configuração do GIT
+git config --global user.name lukus-git
+git config --global user.email lucas.garbi13@hotmail.com
+
+dotnet new mvc -o Pokedex
+cd Pokedex
+
+and god i know im one
