@@ -23,7 +23,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        HomeVM home = new(){
+        HomeVM home = new() {
             Tipos = _db.Tipos.ToList(),
             Pokemons = _db.Pokemons
                 .Include(p => p.Tipos)
@@ -50,10 +50,11 @@ public class HomeController : Controller
                 .FirstOrDefault(p => p.Numero < id),
             Proximo = _db.Pokemons
                 .OrderBy(p => p.Numero)
-                .FirstOrDefault(p => p.Numero > id),
+                .FirstOrDefault(p => p.Numero > id)
         };
         return View(detail);
     }
+
     public IActionResult Privacy()
     {
         return View();

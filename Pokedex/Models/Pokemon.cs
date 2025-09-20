@@ -9,18 +9,18 @@ public class Pokemon
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public uint Numero { get; set; }
 
-    [Required(ErrorMessage = "Por favor, informe a região")]
+    [Required(ErrorMessage = "Por favor, informe a Região")]
     public uint RegiaoId { get; set; }
     [ForeignKey("RegiaoId")]
     public Regiao Regiao { get; set; }
 
-    [Required(ErrorMessage ="Por favor, informe o Gênero")]
+    [Required(ErrorMessage = "Por favor, informe o Genêro")]
     public uint GeneroId { get; set; }
     [ForeignKey("GeneroId")]
     public Genero Genero { get; set; }
 
     [StringLength(30)]
-    [Required(ErrorMessage ="Por favor, informe o nome")]
+    [Required(ErrorMessage = "Por favor, informe o nome")]
     public string Nome { get; set; }
 
     [StringLength(1000)]
@@ -39,7 +39,6 @@ public class Pokemon
 
     [StringLength(400)]
     public string Animacao { get; set; }
-    
-    public ICollection<PokemonTipo> Tipos { get; set; }
 
+    public ICollection<PokemonTipo> Tipos { get; set; }
 }

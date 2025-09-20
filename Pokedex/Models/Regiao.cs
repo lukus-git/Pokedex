@@ -7,9 +7,8 @@ public class Regiao
 {
     [Key]
     public uint Id { get; set; }
-    
-    [StringLength(30)]
-    [Required(ErrorMessage ="Por favor, informe a região")]
 
+    [StringLength(30)]
+    [Required(ErrorMessage = "Por favor, informe o nome")]
     public string Nome { get; set; }
 }

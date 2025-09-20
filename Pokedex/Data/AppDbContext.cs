@@ -1,4 +1,3 @@
-using System.Formats.Tar;
 using Microsoft.EntityFrameworkCore;
 using Pokedex.Models;
 
@@ -12,7 +11,7 @@ public class AppDbContext : DbContext
 
     public DbSet<Genero> Generos { get; set; }
     public DbSet<Pokemon> Pokemons { get; set; }
-    public DbSet<PokemonTipo>  PokemonTipos { get; set; }
+    public DbSet<PokemonTipo> PokemonTipos { get; set; }
     public DbSet<Regiao> Regioes { get; set; }
     public DbSet<Tipo> Tipos { get; set; }
 
@@ -21,12 +20,12 @@ public class AppDbContext : DbContext
         base.OnModelCreating(builder);
 
         #region Muitos para Muitos do Pokemon Tipo
-        //Configuração da chave primária
+        // Configuração da Chave Primária
         builder.Entity<PokemonTipo>().HasKey(
-            pt => new { pt.PokemonNumero, pt.TipoId}
-        ); 
+            pt => new { pt.PokemonNumero, pt.TipoId }
+        );
 
-        //Chave estrangeira - PokemonTipo -> Pokemon
+        // Chave Estrangeira - PokemonTipo -> Pokemon
         builder.Entity<PokemonTipo>()
             .HasOne(pt => pt.Pokemon)
             .WithMany(p => p.Tipos)
@@ -34,9 +33,9 @@ public class AppDbContext : DbContext
 
         // Chave Estrangeira - PokemonTipo -> Tipo
         builder.Entity<PokemonTipo>()
-        .HasOne(pt => pt.Tipo)
-        .WithMany(t => t.Pokemons)
-        .HasForeignKey(pt => pt.TipoId);
+            .HasOne(pt => pt.Tipo)
+            .WithMany(t => t.Pokemons)
+            .HasForeignKey(pt => pt.TipoId);
         #endregion
     }
 }
