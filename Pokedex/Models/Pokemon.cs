@@ -6,6 +6,7 @@ namespace Pokedex.Models;
 public class Pokemon
 {
     [Key]
+    [Display(Name ="Número", Prompt="Informe um Número")]
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public uint Numero { get; set; }
 
